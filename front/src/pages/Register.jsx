@@ -8,13 +8,22 @@ export default function Register() {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [erro, setErro] = useState(null);
+  const [sucesso, setSucesso] = useState(null);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setErro(null);
+    setSucesso(null);
+
     try {
       await apiRegister({ nome, idade: parseInt(idade), email, senha });
-      navigate("/login");
+      setSucesso("Registrado com sucesso!");
+
+      // Aguarda 2 segundos e redireciona
+      setTimeout(() => {
+        navigate("/login");
+      }, 1000);
     } catch (err) {
       setErro(err.message || "Erro no registro");
     }
@@ -25,6 +34,8 @@ export default function Register() {
       <h2>Registrar</h2>
       <form onSubmit={handleSubmit}>
         {erro && <p style={{ color: "red" }}>{erro}</p>}
+        {sucesso && <p style={{ color: "green" }}>{sucesso}</p>}
+
         <div>
           <label>Nome:</label>
           <input

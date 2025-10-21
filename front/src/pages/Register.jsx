@@ -21,7 +21,7 @@ export default function Register() {
   };
 
   return (
-    <div>
+    <div className="container">
       <h2>Registrar</h2>
       <form onSubmit={handleSubmit}>
         {erro && <p style={{ color: "red" }}>{erro}</p>}

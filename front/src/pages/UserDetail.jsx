@@ -8,17 +8,17 @@ export default function UserDetail() {
   const [erro, setErro] = useState(null);
 
   useEffect(() => {
-    fetchUser();
-  }, []);
+    const fetchUser = async () => {
+      try {
+        const data = await getUserById(id);
+        setUser(data);
+      } catch (err) {
+        setErro(err.message || "Erro ao buscar usuário");
+      }
+    };
 
-  const fetchUser = async () => {
-    try {
-      const data = await getUserById(id);
-      setUser(data);
-    } catch (err) {
-      setErro(err.message || "Erro ao buscar usuário");
-    }
-  };
+    fetchUser();
+  }, [id]);
 
   if (erro) {
     return (

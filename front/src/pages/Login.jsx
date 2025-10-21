@@ -19,7 +19,7 @@ export default function Login() {
   };
 
   return (
-    <div>
+    <div className="container">
       <h2>Login</h2>
       <form onSubmit={handleSubmit}>
         {erro && <p style={{ color: "red" }}>{erro}</p>}

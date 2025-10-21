@@ -1,0 +1,125 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9fafb;
+  color: #111827;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* Container centralizado */
+.container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Títulos */
+h1,
+h2 {
+  margin-bottom: 1rem;
+  color: #1f2937;
+}
+
+/* Botões */
+button {
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #3b82f6;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+}
+
+button:hover {
+  background-color: #2563eb;
+}
+
+/* Inputs */
+input,
+select {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.25rem;
+  margin-bottom: 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background-color: #f3f4f6;
+  transition: border-color 0.2s;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #3b82f6;
+  background-color: #fff;
+}
+
+/* Formulário */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Links */
+a {
+  color: #3b82f6;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Mensagens de erro */
+.error {
+  color: #dc2626;
+  background-color: #fee2e2;
+  padding: 0.5rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+/* Lista de usuários */
+.user-list {
+  list-style: none;
+  padding: 0;
+}
+
+.user-list li {
+  padding: 1rem;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user-list li:last-child {
+  border-bottom: none;
+}
+
+.user-info {
+  flex-grow: 1;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+  .container {
+    padding: 1rem;
+  }
+
+  button {
+    width: 100%;
+  }
+}

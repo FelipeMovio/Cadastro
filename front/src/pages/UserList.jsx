@@ -34,7 +34,7 @@ export default function UserList() {
   };
 
   return (
-    <div>
+    <div className="container">
       <h2>Lista de Usuários</h2>
       <button onClick={logout}>Logout</button>
       {erro && <p style={{ color: "red" }}>{erro}</p>}

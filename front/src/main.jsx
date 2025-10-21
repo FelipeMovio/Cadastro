@@ -7,8 +7,6 @@ import { AuthProvider } from "./context/AuthProvider";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
-      {" "}
-      {/* ✅ Só aqui */}
       <AuthProvider>
         <App />
       </AuthProvider>

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { register as apiRegister } from "../api/api";
 import { useNavigate } from "react-router-dom";
+import "../styles/Acess.css";
 
 export default function Register() {
   const [nome, setNome] = useState("");
@@ -20,7 +21,7 @@ export default function Register() {
       await apiRegister({ nome, idade: parseInt(idade), email, senha });
       setSucesso("Registrado com sucesso!");
 
-      // Aguarda 2 segundos e redireciona
+      // Aguarda 1 segundos e redireciona
       setTimeout(() => {
         navigate("/login");
       }, 1000);

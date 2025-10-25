@@ -47,30 +47,3 @@ export async function getUsers() {
   }
   return resp.json(); // lista de users
 }
-
-export async function getUserById(id) {
-  const resp = await fetch(`${API_BASE}/users/${id}`, {
-    headers: {
-      "Content-Type": "application/json",
-      ...authHeader(),
-    },
-  });
-  if (!resp.ok) {
-    throw new Error("Erro ao buscar usuário");
-  }
-  return resp.json();
-}
-
-export async function deleteUser(id) {
-  const resp = await fetch(`${API_BASE}/users/${id}`, {
-    method: "DELETE",
-    headers: {
-      "Content-Type": "application/json",
-      ...authHeader(),
-    },
-  });
-  if (!resp.ok) {
-    throw new Error("Erro ao deletar usuário");
-  }
-  return true;
-}

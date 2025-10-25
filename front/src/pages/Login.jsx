@@ -1,7 +1,8 @@
-import { useState, useContext, useEffect } from "react";
+import { useState, useContext } from "react";
 import { login as apiLogin } from "../api/api";
 import { AuthContext } from "../context/AuthContext";
 import "../styles/Acess.css";
+import DarkModeToggle from "../components/DarkModeToggle";
 import { Link } from "react-router-dom";
 
 export default function Login() {
@@ -9,16 +10,6 @@ export default function Login() {
   const [senha, setSenha] = useState("");
   const [erro, setErro] = useState(null);
   const { login } = useContext(AuthContext);
-  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
-
-  useEffect(() => {
-    document.documentElement.setAttribute("data-theme", theme);
-    localStorage.setItem("theme", theme);
-  }, [theme]);
-
-  const toggleTheme = () => {
-    setTheme(theme === "light" ? "dark" : "light");
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -32,12 +23,8 @@ export default function Login() {
 
   return (
     <div className="container">
+      <DarkModeToggle />
       <h2>Login</h2>
-
-      <button onClick={toggleTheme} className="theme-toggle">
-        {theme === "light" ? "🌙" : "☀️"}
-      </button>
-
       <form onSubmit={handleSubmit}>
         {erro && <p className="error">{erro}</p>}
 
@@ -50,7 +37,6 @@ export default function Login() {
             required
           />
         </div>
-
         <div>
           <label>Senha:</label>
           <input
@@ -64,7 +50,6 @@ export default function Login() {
         <button type="submit">Entrar</button>
       </form>
 
-      {/* Link para registro */}
       <p style={{ marginTop: "1rem" }}>
         Ainda não tem uma conta?{" "}
         <Link to="/register">

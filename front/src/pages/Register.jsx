@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { register as apiRegister } from "../api/api";
 import { useNavigate } from "react-router-dom";
+import DarkModeToggle from "../components/DarkModeToggle";
 import "../styles/Acess.css";
 
 export default function Register() {
@@ -32,10 +33,11 @@ export default function Register() {
 
   return (
     <div className="container">
+      <DarkModeToggle />
       <h2>Registrar</h2>
       <form onSubmit={handleSubmit}>
-        {erro && <p style={{ color: "red" }}>{erro}</p>}
-        {sucesso && <p style={{ color: "green" }}>{sucesso}</p>}
+        {erro && <p className="error">{erro}</p>}
+        {sucesso && <p className="success">{sucesso}</p>}
 
         <div>
           <label>Nome:</label>
